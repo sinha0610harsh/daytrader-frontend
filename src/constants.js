@@ -1,0 +1,1 @@
+export const ACCOUNTS_API_URL = 'http://localhost:1443'
