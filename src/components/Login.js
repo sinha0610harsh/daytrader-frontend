@@ -78,9 +78,9 @@ class Login extends Component {
                 </div>
                 <div className='error-message'>{errorFlag?<p>UnAuthorized User </p>:''}</div>
                 <div className='form-group'>
-               <button className='app-login-button'>Login</button>
+                  <button className='app-login-button'>Login</button>
                 </div>
-                <div className='form-group'>
+                <div className='form-group regitster-link-section'>
                   <p>First time user ? Please <Link to='/Register'>Register</Link></p>
                 </div>
               </form>

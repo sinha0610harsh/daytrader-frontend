@@ -62,12 +62,19 @@
     margin-top: 15px;
     color: #fff;
     font-size: 14px;
-    border: 2px solid #cc3f3f;;
     border-radius: 5px;
-    color: #cc3f3f;;
+    background-color: #cc3f3f;
+    border: none;
+    height: 35px;
+    width: 100px;
     text-decoration: none;
 }
 .error-message{
     color: #cc3f3f;
     text-align: right;
+}
+
+
+.regitster-link-section a {
+    color: #cc3f3f;
 }
