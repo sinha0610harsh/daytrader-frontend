@@ -23,6 +23,13 @@
     text-align: center;
 }
 
+.terms-bullet-list li b {
+    color: #0000a0;
+}
+.terms-bullet-list li{
+    text-align: left;
+}
+
 .app-home-container .app-home-content .overview-image img {
     max-height: 400px;
 }

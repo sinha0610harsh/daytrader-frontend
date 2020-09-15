@@ -7,10 +7,12 @@
 }
 
 .app-navbar-container .an-contet {
-    padding: 15px;
+    padding: 15px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* width: 85%; */
+    margin: auto;
 }
 
 .app-navbar-container .an-contet .left-side .company-info {
@@ -19,7 +21,7 @@
 }
 
 .app-navbar-container .an-contet .left-side .company-info .colored-text {
-    color: #bf3b3b;
+    color: #cc3f3f;;
 }
 
 .app-navbar-container .an-contet .right-side .nav-links a {
@@ -29,4 +31,8 @@
     font-weight: 600;
     display: inline-block;
     margin-right: 25px;
+}
+
+.app-navbar-container .an-contet .right-side .nav-links a.active-link {
+    color: #cc3f3f;
 }

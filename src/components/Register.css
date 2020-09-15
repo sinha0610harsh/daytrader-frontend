@@ -29,7 +29,7 @@
 }
 
 .app-register-container .ar-content .ar-register-box .company-info .colored-text {
-    color: #bf3b3b;
+    color: #cc3f3f;;
 }
 
 .ar-register-box .form-container {
@@ -63,10 +63,10 @@
 
 .ar-register-box .form-container .form-group .submit-button {
     margin-top: 15px;
-    background-color: #bf3b3b;
+    background-color: #cc3f3f;;
     color: #fff;
     font-size: 14px;
-    border: 2px solid #bf3b3b;
+    border: 2px solid #cc3f3f;;
     border-radius: 5px;
     width: 150px;
     height: 35px;
@@ -75,6 +75,6 @@
 
 
 .ar-register-box .form-container .form-group a {
-    color: #bf3b3b;
+    color: #cc3f3f;;
     text-decoration: none;
 }

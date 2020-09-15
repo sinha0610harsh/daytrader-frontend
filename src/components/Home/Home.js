@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../shared/Navbar'
+import Navbar from '../shared/Navbar/Navbar'
 import overviewImage from '../../assets/tradeOverview.png'
 import './Home.css'
 import { Link } from 'react-router-dom'

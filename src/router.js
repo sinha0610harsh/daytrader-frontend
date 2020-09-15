@@ -10,6 +10,16 @@ import Register from './components/Register';
 import FAQ from './components/faq/faq';
 import PrimitiveComponent from './components/primitives/primitives';
 import configuration from './components/configuration/configuration'
+import Dashboard from './components/TradingAndPortfolios/Home';
+import Terms from './components/Terms/Terms';
+import TermsComponent from './components/Terms/Terms';
+import Account from './components/TradingAndPortfolios/Account/Account';
+import Portfolio from './components/TradingAndPortfolios/Portfolio/Portfolio';
+import QuotesOrTrade from './components/TradingAndPortfolios/QuotesOrTrade/QuotesOrTrade';
+import NewOrder from './components/TradingAndPortfolios/NewOrder/NewOrder';
+import CompletedOrder from './components/TradingAndPortfolios/NewOrder/CompletedOrder';
+import RePopulatedata from './components/configuration/RePopulatedata';
+
 const AppRouter = () => {
   return (
     <Router>
@@ -20,6 +30,14 @@ const AppRouter = () => {
         <Route path="/faq" component={FAQ} exact/>
         <Route path="/primitives" component={PrimitiveComponent} exact/>
         <Route path="/configuration" component={configuration} exact/>
+        <Route path="/TradingAndPortfolios" component={Dashboard} exact/>
+        <Route path="/Terms" component={Terms} exact/>
+        <Route path="/Account" component={Account} exact/>
+        <Route path="/Portfolio"component={Portfolio} exact/>
+        <Route path="/QuotesOrTrade" component={QuotesOrTrade} exact/>
+        <Route path="/NewOrder" component={NewOrder} exact/>
+        <Route path="/CompetedOrder" component={CompletedOrder} exact/>
+        <Route path="/Repopulatedata" component={RePopulatedata} exact/>
       </Switch>
     </Router>
   )

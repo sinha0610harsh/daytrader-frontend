@@ -1,7 +1,7 @@
 import React from 'react'
 import './Navbar.css'
-import { Link } from 'react-router-dom'
-import logoImage from '../../assets/dayTraderLogo.gif'
+import { NavLink } from 'react-router-dom'
+import logoImage from '../../../assets/dayTraderLogo.gif'
 
 const Navbar = () => {
   return (
@@ -16,11 +16,11 @@ const Navbar = () => {
         </div>
         <div className='right-side'>
           <div className='nav-links'>
-            <Link to='/'>Home</Link>
-            <Link to='/login'>Trading & Portfolios</Link>
-            <Link to='/configuration'>Configuration</Link>
-            <Link to='/primitives'>Primitives</Link>
-            <Link to='/faq'>FAQ</Link>
+            <NavLink activeClassName="active-link" to='/' exact>Home</NavLink>
+            <NavLink activeClassName="active-link" to='/login'>Trading & Portfolios</NavLink>
+            <NavLink activeClassName="active-link" to='/configuration'>Configuration</NavLink>
+            <NavLink activeClassName="active-link" to='/primitives'>Primitives</NavLink>
+            <NavLink activeClassName="active-link" to='/faq'>FAQ</NavLink>
           </div>
         </div>
       </div>

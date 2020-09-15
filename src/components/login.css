@@ -28,7 +28,7 @@
 }
 
 .app-login-container .al-content .al-login-box .company-info .colored-text {
-    color: #bf3b3b;
+    color: #cc3f3f;
 }
 
 .al-login-box .form-container {
@@ -60,10 +60,10 @@
 
 .al-login-box .form-container .form-group .app-login-button {
     margin-top: 15px;
-    background-color: #bf3b3b;
+    background-color: #cc3f3f;;
     color: #fff;
     font-size: 14px;
-    border: 2px solid #bf3b3b;
+    border: 2px solid #cc3f3f;;
     border-radius: 5px;
     width: 100px;
     height: 35px;
@@ -71,6 +71,10 @@
 }
 
 .al-login-box .form-container .form-group a {
-    color: #bf3b3b;
+    color: #cc3f3f;;
     text-decoration: none;
+}
+.error-message{
+    color: #cc3f3f;
+    text-align: right;
 }
