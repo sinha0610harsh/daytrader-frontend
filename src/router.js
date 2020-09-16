@@ -19,6 +19,7 @@ import QuotesOrTrade from './components/TradingAndPortfolios/QuotesOrTrade/Quote
 import NewOrder from './components/TradingAndPortfolios/NewOrder/NewOrder';
 import CompletedOrder from './components/TradingAndPortfolios/NewOrder/CompletedOrder';
 import RePopulatedata from './components/configuration/RePopulatedata';
+import RecreateDatabaseComponent from './components/configuration/RecreateDatabaseComponent';
 
 const AppRouter = () => {
   return (
@@ -26,18 +27,27 @@ const AppRouter = () => {
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/login" component={Login} exact />
-        <Route path="/Register" component={Register} exact/>
-        <Route path="/faq" component={FAQ} exact/>
-        <Route path="/primitives" component={PrimitiveComponent} exact/>
-        <Route path="/configuration" component={configuration} exact/>
-        <Route path="/TradingAndPortfolios" component={Dashboard} exact/>
-        <Route path="/Terms" component={Terms} exact/>
-        <Route path="/Account" component={Account} exact/>
-        <Route path="/Portfolio"component={Portfolio} exact/>
-        <Route path="/QuotesOrTrade" component={QuotesOrTrade} exact/>
-        <Route path="/NewOrder" component={NewOrder} exact/>
-        <Route path="/CompetedOrder" component={CompletedOrder} exact/>
-        <Route path="/Repopulatedata" component={RePopulatedata} exact/>
+        <Route path="/Register" component={Register} exact />
+        <Route path="/faq" component={FAQ} exact />
+        <Route path="/primitives" component={PrimitiveComponent} exact />
+        <Route path="/configuration" component={configuration} exact />
+        <Route path="/TradingAndPortfolios" component={Dashboard} exact />
+        <Route path="/Terms" component={Terms} exact />
+        <Route path="/Account" component={Account} exact />
+        <Route path="/Portfolio" component={Portfolio} exact />
+        <Route path="/QuotesOrTrade" component={QuotesOrTrade} exact />
+        <Route path="/NewOrder" component={NewOrder} exact />
+        <Route path="/CompetedOrder" component={CompletedOrder} exact />
+        <Route path="/Repopulatedata" component={RePopulatedata} exact />
+        <Route path="/ReCreate" component={RecreateDatabaseComponent} exact />
+        <Route path="/configure" component={ConfigureDatabaseComponent} exact />
+        <Route
+          path="/version"
+          component={DaytraderVersionDatabaseComponent}
+          exact
+        />
+        <Route path="/reset" component={ResetDatabaseComponent} exact />
+
       </Switch>
     </Router>
   )

@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../shared/Navbar/Navbar'
 import Footer from '../shared/Footer/Footer'
 import './configuration.css'
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const ConfigurationComponent = () => {
   return (
@@ -22,11 +22,11 @@ const ConfigurationComponent = () => {
             <td>Reset the DayTrader runtime to a clean starting point by logging off all users, removing new registrations and other general cleanup. For consistent results this URL should be run <b>before each</b> Trade run.</td>
           </tr>
           <tr>
-            <td><a>Configure DayTrader run-time parameters</a></td>
+            <td><a><Link to="/configure">Configure DayTrader run-time parameters</Link></a></td>
             <td>This link provides an interface to set configuration parameters that control DayTrader run-time characteristics such as using EJBs or JDBC. This link also provides utilities such as setting the UID and Password for a remote or protected database when using JDBC.</td>
           </tr>
           <tr>
-            <td><a>(Re)-create  DayTrader Database Tables and Indexes</a></td>
+            <td><a><Link to="/recreate">(Re)-create  DayTrader Database Tables and Indexes</Link></a></td>
             <td>This link is used to (a) initially create or (b) drop and re-create the DayTrader tables.<b> A DayTrader database should exist before doing this action,</b> the existing DayTrader tables, if any, are dropped, then new tables and indexes are created.<b> Please stop and re-start the Daytrader application (or your application server) after this action and then use the "Repopulate DayTrader Database" link below to repopulate the new database tables.</b></td>
           </tr>
           <tr>
