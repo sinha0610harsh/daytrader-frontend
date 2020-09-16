@@ -68,6 +68,7 @@
     height: 35px;
     width: 100px;
     text-decoration: none;
+    outline: none;
 }
 .error-message{
     color: #cc3f3f;

@@ -7,6 +7,7 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 import './Account.css';
 import { ACCOUNTS_API_URL } from '../../../constants';
+import Loader from '../../Loader/Loader';
 
 const userId = localStorage.getItem('userId')
 class Accountpage extends Component {
@@ -18,6 +19,8 @@ class Accountpage extends Component {
       ordersummary: {},
       curTime : new Date().toLocaleString(),
       updateFlag:false,
+      showAllOrdersinfo:[],
+      showLoader: true,
     }
   }
   componentDidMount() {
@@ -25,14 +28,15 @@ class Accountpage extends Component {
       .then(res => {
         console.log('res', res)
         this.setState({
-          accountsummary: res.data
+          accountsummary: res.data,
         })
       })
     axios.get(`https://localhost:1443/accounts/${userId}/profiles`)
       .then(res => {
         console.log('res', res)
         this.setState({
-          userinfo: res.data
+          userinfo: res.data,
+          showLoader: false
         })
       })
   }
@@ -66,13 +70,25 @@ class Accountpage extends Component {
         })
       })
   }
+  showAllOrders=()=>{
+    axios.get(`https://localhost:2443/portfolios/${userId}/orders`)
+    .then(res=>{
+      console.log('res',res)
+      this.setState({
+        showAllOrdersinfo:res.data,
+        showLoader: false
+      })
+    })
+
+  }
 
   render() {
-    const { accountsummary, ordersummary, userinfo ,curTime,updateFlag} = this.state
+    const { accountsummary, ordersummary, userinfo ,curTime,updateFlag,showAllOrdersinfo, showLoader} = this.state
     const { accountID, loginCount, creationDate, lastLogin, openBalance, balance, logoutCount } = accountsummary;
     const { userID, fullName, address, email, creditCard, password } = userinfo;
     return (
       <div className='account-page-main-container'>
+        {showLoader && <Loader />}
         <Navbar />
         <div className='app-login-navbar-section'>
           <LoginNavbar />
@@ -80,7 +96,7 @@ class Accountpage extends Component {
         <div className='app-current-date-time-section' style={{maxWidth: '85%', margin: 'auto'}}>
           <p>{moment(curTime).format('ddd MMM DD hh:mm:ss')} IST {moment(curTime).format('YYYY') }</p>
         </div>
-      <div>{updateFlag ?<p>Account profile update successful</p>:''}</div>
+        <div className='update-message' style={{maxWidth: '85%', margin: 'auto'}}>{updateFlag ?<p>Account profile update successful</p>:''}</div>
         <div className='account-page-table-container'>
           <table className='account-page-table' cellPadding="0" cellSpacing="0">
             <tr className='table-header'>
@@ -103,8 +119,8 @@ class Accountpage extends Component {
           </table>
           <table className='recent-orders-table' cellSpacing='0' cellPadding='0' width='100%'>
             <tr className='table-header' >
-              <td colSpan="5">Total Orders:</td>
-              <td colSpan="5" style={{textAlign: 'right'}}>show all orders</td>
+              <td colSpan="5" className='total-orders-td'>Total Orders:</td>
+              <td colSpan="5" className='show-all-orders-td' onClick={this.showAllOrders}><Link>show all orders</Link></td>
             </tr>
             <tr className='table-row'>
               <th><Link to="/Terms">Order ID</Link></th>
@@ -118,9 +134,28 @@ class Accountpage extends Component {
               <th><Link to="/Terms">Price</Link></th>
               <th><Link to="/Terms">Total</Link></th>
             </tr>
-            <tr className='no-orders-row'>
+            {/* <tr className='no-orders-row'>
               <td colSpan='10' style={{ textAlign: "center" }}>Recent Orders</td>
-            </tr>
+            </tr> */}
+            {showAllOrdersinfo && showAllOrdersinfo.map((item,index)=>{
+              const {orderID,orderStatus,openDate,completionDate,orderFee,orderType,symbol,quantity,price}=item;
+              const total=(price*quantity);
+              return(
+                <tr className='table-row'>
+                <td>{orderID}</td>
+                <td>{orderStatus}</td>
+                <td>{moment(openDate).format('llll')}</td>
+                <td>{moment(completionDate).format('llll')}</td>
+                <td>{orderFee}</td>
+                <td>{orderType}</td>
+                <td>{symbol}</td>
+                <td>{quantity}</td>
+                <td>{price}</td>
+                <td>{total}</td>
+                </tr>
+              )
+            }
+            )}
           </table>
           <table className='account-update-table' cellPadding='0' cellSpacing='0' width='100%'>
             <tr className='table-header'>

@@ -17,6 +17,18 @@
     font-weight: 600;
 }
 
+.total-orders-td {
+    text-align: left !important;
+}
+.show-all-orders-td {
+    text-align: right !important;
+}
+
+.show-all-orders-td a {
+    text-decoration: none;
+    text-align: right;
+}
+
 .table-row td {
     color: #333;
     padding: 8px 10px;
@@ -43,6 +55,14 @@
 .recent-orders-table tr th a {
     color: navy;
     text-decoration: none;
+}
+
+.recent-orders-table tr td {
+   text-align: center;
+}
+
+.recent-orders-table tr:nth-child(odd) td {
+    background-color: #f1f1f1;
 }
 .no-orders-row td {
     padding: 10px;
@@ -80,5 +100,8 @@
 }
 .app-current-date-time-section{
     text-align: right;
+    color:  #cc3f3f;
+}
+.update-message{
     color:  #cc3f3f;
 }

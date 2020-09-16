@@ -164,7 +164,7 @@ class Dashboard extends Component {
                     <Link to='/Terms'>Trading Volume:</Link>
                   </td>
                   <td className='main-table-td-td'>
-                    {volume ? volume.toFixed(1) : ''}
+                    {volume ? volume.toFixed(1) : '0.0'}
                   </td>
                 </tr>
                 <tr>
