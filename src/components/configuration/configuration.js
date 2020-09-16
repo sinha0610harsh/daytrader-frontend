@@ -18,7 +18,7 @@ const ConfigurationComponent = () => {
             <th>Description</th>
           </tr>
           <tr>
-            <td ><a>Reset DayTrader(to be done before each run)</a></td>
+            <td ><a><Link to="/reset">Reset DayTrader(to be done before each run)</Link></a></td>
             <td>Reset the DayTrader runtime to a clean starting point by logging off all users, removing new registrations and other general cleanup. For consistent results this URL should be run <b>before each</b> Trade run.</td>
           </tr>
           <tr>
@@ -38,7 +38,7 @@ const ConfigurationComponent = () => {
             <td>This links pops up a browser to manually step through a DayTrader scenario by hitting "Reload" on your browser</td>
           </tr>
           <tr>
-            <td><a>DayTrader Version</a></td>
+            <td><a><Link to="/version">DayTrader Version</Link></a></td>
             <td>DayTrader application version and change history information</td>
           </tr>
         </table>
