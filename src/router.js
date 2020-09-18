@@ -20,7 +20,10 @@ import NewOrder from './components/TradingAndPortfolios/NewOrder/NewOrder';
 import CompletedOrder from './components/TradingAndPortfolios/NewOrder/CompletedOrder';
 import RePopulatedata from './components/configuration/RePopulatedata';
 import RecreateDatabaseComponent from './components/configuration/RecreateDatabaseComponent';
-
+import ConfigureDatabaseComponent from './components/configuration/ConfigureDatabaseComponent';
+import DaytraderVersionDatabaseComponent from './components/configuration/DaytraderVersionDatabaseComponent';
+import ResetDatabaseComponent from './components/configuration/ResetDatabaseComponent'
+ 
 const AppRouter = () => {
   return (
     <Router>

@@ -1,5 +1,5 @@
 .app-footer-container {
-    border-top: 5px solid #cc3e3e;
+    border-top: 2px solid #cc3e3e;
     background-color: #f1f3f4;
     position: fixed;
     bottom: 0;
@@ -12,6 +12,8 @@
     margin: auto;
 }
 
-.app-footer-content .footer-image {
-
+.app-footer-content h4 {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 14px;
 }

@@ -3,8 +3,8 @@
 }
 
 .app-home-container .app-home-content {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     width: 80%;
     margin: auto;
 }
@@ -15,8 +15,8 @@
 }
 
 .app-home-container .app-home-content p {
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 14px;
+    line-height: 22px;
 }
 
 .app-home-container .app-home-content .overview-image {
