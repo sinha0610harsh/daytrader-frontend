@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./configureDtabase.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import Navbar from "../shared/Navbar/Navbar";
+import Footer from "../shared/Footer/Footer";
 
 const ConfigureDatabaseComponent = () => {
   const { register, handleSubmit, setValue } = useForm();
@@ -19,6 +21,7 @@ const ConfigureDatabaseComponent = () => {
   };
   return (
     <div className="recreate-container">
+      <Navbar />
       <div className="rc-top-container"></div>
       <form onSubmit={handleSubmit(onClickUpdateConfig)}>
         <div className="recreate-table-data-container">
@@ -333,6 +336,7 @@ const ConfigureDatabaseComponent = () => {
           </table>
         </div>
       </form>
+      <Footer />
     </div>
   );
 };

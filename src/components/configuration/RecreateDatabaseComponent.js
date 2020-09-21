@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./recreateDatabase.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
+import Footer from "../shared/Footer/Footer";
 
 const RecreateDatabaseComponent = () => {
   const { register, handleSubmit, setValue } = useForm();
@@ -19,7 +21,9 @@ const RecreateDatabaseComponent = () => {
   };
   return (
     <div className="recreate-container">
+
       <div className="rc-top-container">
+
         <div>TradeBuildDB: Building DayTrader Database...</div>
         <div>This operation will take several minutes. Please wait...</div>
         <div>
@@ -38,6 +42,7 @@ const RecreateDatabaseComponent = () => {
       </div>
       <form onSubmit={handleSubmit(onClickUpdateConfig)}>
         <div className="recreate-table-data-container">
+
           <table className="recreate-table">
             <tr className="table-header">
               <td>DayTrader configuration</td>
@@ -349,6 +354,7 @@ const RecreateDatabaseComponent = () => {
           </table>
         </div>
       </form>
+      <Footer />
     </div>
   );
 };

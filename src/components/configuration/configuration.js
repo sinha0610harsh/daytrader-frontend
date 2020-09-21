@@ -33,10 +33,7 @@ const ConfigurationComponent = () => {
             <td><a><Link to='/RePopulatedata'>(Re)-populate  DayTrader Database</Link></a></td>
             <td>This link is used to initially populate or re-populate the DayTrader database with fictitious users (uid:0, uid:1, ...) and stocks (s:0, s:1, ...). First all existing users and stocks are deleted (if any). The database is then populated with a new set of DayTrader users and stocks. This option does not drop and recreate the Daytrader db tables.</td>
           </tr>
-          <tr>
-            <td><a>Test DayTrader Scenario</a></td>
-            <td>This links pops up a browser to manually step through a DayTrader scenario by hitting "Reload" on your browser</td>
-          </tr>
+
           <tr>
             <td><a><Link to="/version">DayTrader Version</Link></a></td>
             <td>DayTrader application version and change history information</td>

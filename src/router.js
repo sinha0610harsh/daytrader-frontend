@@ -23,10 +23,13 @@ import RecreateDatabaseComponent from './components/configuration/RecreateDataba
 import ConfigureDatabaseComponent from './components/configuration/ConfigureDatabaseComponent';
 import DaytraderVersionDatabaseComponent from './components/configuration/DaytraderVersionDatabaseComponent';
 import ResetDatabaseComponent from './components/configuration/ResetDatabaseComponent'
- 
+import Navbar from './components/shared/Navbar/Navbar';
+import Footer from './components/shared/Footer/Footer';
+
 const AppRouter = () => {
   return (
     <Router>
+      <Navbar />
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/login" component={Login} exact />
@@ -52,6 +55,7 @@ const AppRouter = () => {
         <Route path="/reset" component={ResetDatabaseComponent} exact />
 
       </Switch>
+      <Footer />
     </Router>
   )
 }
