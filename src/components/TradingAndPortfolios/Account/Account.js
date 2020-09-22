@@ -9,7 +9,6 @@ import './Account.css';
 import { ACCOUNTS_API_URL } from '../../../constants';
 import Loader from '../../Loader/Loader';
 
-const userId = localStorage.getItem('userId')
 class Accountpage extends Component {
   constructor() {
     super();
@@ -23,19 +22,21 @@ class Accountpage extends Component {
       showLoader: true,
     }
   }
+
   componentDidMount() {
+    const userId = localStorage.getItem('userId')
     axios.get(`https://localhost:1443/accounts/${userId}`)
       .then(res => {
         console.log('res', res)
         this.setState({
-          accountsummary: res.data,
+          accountsummary: {...res.data},
         })
       })
     axios.get(`https://localhost:1443/accounts/${userId}/profiles`)
       .then(res => {
         console.log('res', res)
         this.setState({
-          userinfo: res.data,
+          userinfo: {...res.data},
           showLoader: false
         })
       })
@@ -62,6 +63,7 @@ class Accountpage extends Component {
       password: userinfo.password,
       userID: userinfo.userID
     }
+    const userId = localStorage.getItem('userId')
     axios.put(`${ACCOUNTS_API_URL}/accounts/${userId}/profiles`, dataToSend)
       .then(res => {
         console.log('res', res);
@@ -71,6 +73,7 @@ class Accountpage extends Component {
       })
   }
   showAllOrders=()=>{
+    const userId = localStorage.getItem('userId')
     axios.get(`https://localhost:2443/portfolios/${userId}/orders`)
     .then(res=>{
       console.log('res',res)
@@ -112,7 +115,7 @@ class Accountpage extends Component {
               <td>Cash Balance: <span>{balance}</span></td>
             </tr>
             <tr className='table-row'>
-              <td>User ID: <span>{userId}</span></td>
+              <td>User ID: <span>{userID}</span></td>
               <td>Total Logouts: <span>{logoutCount}</span></td>
               <td>Opening Balance: <span>{openBalance}</span></td>
             </tr>
@@ -167,7 +170,7 @@ class Accountpage extends Component {
                 <input
                   type="text"
                   name="userid"
-                  value={userId}
+                  value={userID}
                   onChange={this.handleOnInputChange}
                 />
               </td>

@@ -11,7 +11,6 @@ import uparrow from '../../../assets/arrowup.gif';
 import { TXN_FEE } from '../../../constants';
 import CompletedOrder from '../NewOrder/CompletedOrder';
 
-const userId = localStorage.getItem('userId')
 const trade = 'sell'
 const mode=0
 class Portfoliopage extends Component {
@@ -27,6 +26,7 @@ class Portfoliopage extends Component {
   }
 
   componentDidMount() {
+    const userId = localStorage.getItem('userId')
     let holdingsinfo = [];
     axios.get(`https://localhost:3443/portfolios/${userId}/holdings`).
       then(async (res) => {

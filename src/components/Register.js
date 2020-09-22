@@ -16,7 +16,8 @@ class Registerpage extends Component {
       password: '',
       userID: '',
       openBalance: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      showErrorMessage: false
     }
   }
 
@@ -30,7 +31,11 @@ class Registerpage extends Component {
   handleRegister = (e) => {
     e.preventDefault()
     const { fullName, address, email, userID, password, confirmPassword, openBalance, creditCard } = this.state
-    
+    if (!fullName || !address || !email || !userID || password !== confirmPassword || !openBalance || !creditCard) {
+      this.setState({
+        showErrorMessage: true
+      })
+    } else {
       axios.post(`${ACCOUNTS_API_URL}/accounts`, {
         accountID: 0,
         balance: 0,
@@ -50,12 +55,20 @@ class Registerpage extends Component {
         profileID: userID
       }).then(res => {
         console.log('res', res)
+        if (res.status === 201) {
+          localStorage.setItem('userId', res.data.profileID)
+          this.props.history.push('/TradingAndPortfolios');
+        } else {
+          window.alert('Something went wrong, Please try again')
+        }
+      }).catch(e => {
+        window.alert('Something went wrong, Please try again')
       })
-    
+    }
   }
 
   render() {
-    const { fullName, address, email, userID, password, confirmPassword, openBalance, creditCard } = this.state
+    const { fullName, address, email, userID, password, confirmPassword, openBalance, creditCard, showErrorMessage } = this.state
     return (
       <div className='app-register-container'>
         <Navbar />
@@ -64,7 +77,7 @@ class Registerpage extends Component {
             <div className='form-container'>
               <form onSubmit={this.handleRegister}>
                 <div className='form-group'>
-                  <label>Full Name:</label>
+                  <label><span>*</span>Full Name:</label>
                   <input
                     type="text"
                     className='app-register-input'
@@ -74,7 +87,7 @@ class Registerpage extends Component {
                   />
                 </div>
                 <div className='form-group'>
-                <label>Address:</label>
+                <label><span>*</span>Address:</label>
                 <input
                   type="text"
                   className='app-register-input'
@@ -84,7 +97,7 @@ class Registerpage extends Component {
                 />
               </div>
               <div className='form-group'>
-                <label>E-mail address:</label>
+                <label><span>*</span>E-mail address:</label>
                 <input
                   type="text"
                   className='app-register-input'
@@ -94,7 +107,7 @@ class Registerpage extends Component {
                 />
               </div>
               <div className='form-group'>
-                <label>User ID:</label>
+                <label><span>*</span>User ID:</label>
                 <input
                   type="text"
                   className='app-register-input'
@@ -104,7 +117,7 @@ class Registerpage extends Component {
                 />
               </div>
               <div className='form-group'>
-                <label>Password</label>
+                <label><span>*</span>Password</label>
                 <input
                   type="password"
                   className='app-register-input'
@@ -114,7 +127,7 @@ class Registerpage extends Component {
                 />
               </div>
               <div className='form-group'>
-                <label>Confirm Password</label>
+                <label><span>*</span>Confirm Password</label>
                 <input
                   type="password"
                   className='app-register-input'
@@ -122,9 +135,10 @@ class Registerpage extends Component {
                   onChange={this.handleOnChange}
                   value={confirmPassword}
                 />
+                {showErrorMessage && password !== confirmPassword && <p style={{color: '#cc3f3f', fontSize: 12, textAlign: 'right', margin: 0}}>Passwords are not matching!</p>}
               </div>
               <div className='form-group'>
-                <label>Opening account balance:</label>
+                <label><span>*</span>Opening account balance:</label>
                 <input
                   type="text"
                   className='app-register-input'
@@ -134,7 +148,7 @@ class Registerpage extends Component {
                 />
               </div>
               <div className='form-group'>
-                <label>Credit card number:</label>
+                <label><span>*</span>Credit card number:</label>
                 <input
                   type="text"
                   className='app-register-input'
@@ -143,6 +157,7 @@ class Registerpage extends Component {
                   value={creditCard}
                 />
               </div>
+              {showErrorMessage && <p style={{color: '#cc3f3f', fontSize: 12, textAlign: 'right', margin: 0}}>Please fill out all mandatory fields.</p>}
               <div className='form-group'>
                 <label></label>
                 <input type="submit" className='app-register-input submit-button' value='Submit Registration' />
