@@ -66,3 +66,11 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+please run the below command to dockerize your application-
+
+## docker build . -t daytrader-orignal-2
+
+## docker run -d -it -p 80:80/tcp --name react-app daytrader-orignal-2:latest
+
+## docker push react/daytrader-orignal-2
