@@ -10,6 +10,7 @@ import uparrow from '../../../assets/arrowup.gif';
 import moment from 'moment-timezone';
 import { TXN_FEE } from '../../../constants';
 import CompletedOrder from '../NewOrder/CompletedOrder';
+import {LOCAL_GATEWAY_URL} from '../../../constants';
 
 const mode = 0;
 class QuotesOrTradepage extends Component {
@@ -27,9 +28,10 @@ class QuotesOrTradepage extends Component {
     const {quotes} = this.state
     let quotesData = [];
     let obj = {};
+    const { REACT_APP_DAYTRADER_GATEWAY_SERVICE = LOCAL_GATEWAY_URL } = process.env
     for(let i = 0; i < quotes.length; i += 1) {
       const symbol = quotes[i];
-      await axios.get(`https://localhost:4443/quotes/${symbol}`)
+      await axios.get(`${REACT_APP_DAYTRADER_GATEWAY_SERVICE}/quotes/${symbol}`)
       .then(res => {
         console.log('res', res)
         quotesData.push(res.data);
@@ -65,6 +67,7 @@ class QuotesOrTradepage extends Component {
   }
 
   handleBuyOrder = (symbol, i, price) => {
+    const { REACT_APP_DAYTRADER_GATEWAY_SERVICE = LOCAL_GATEWAY_URL } = process.env
     const quantity = this.state[`symbol${i}`]
     const userID = localStorage.getItem('userId');
     const cDate = new Date();
@@ -87,7 +90,7 @@ class QuotesOrTradepage extends Component {
       symbol,
     }
     console.log('dataToSend', dataToSend);
-    axios.post(`https://localhost:3443/portfolios/${userID}/orders?mode=${mode}`, dataToSend)
+    axios.post(`${REACT_APP_DAYTRADER_GATEWAY_SERVICE}/portfolios/${userID}/orders?mode=${mode}`, dataToSend)
       .then(res => {
         console.log('res', res);
         if (res.status === 201) {

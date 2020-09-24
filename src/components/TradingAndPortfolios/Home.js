@@ -6,12 +6,13 @@ import axios from 'axios';
 import moment from 'moment';
 import './Home.css';
 import { Link } from 'react-router-dom';
-import { ACCOUNTS_API_URL } from '../../constants';
 import downarrow from '../../assets/arrowdown.gif';
 import uparrow from '../../assets/arrowup.gif';
 import CompletedOrder from './NewOrder/CompletedOrder';
+import {LOCAL_GATEWAY_URL} from '../../constants';
 
-const exchangeString = 'oracle'
+
+const exchangeString = 'TSIA'
 class Dashboard extends Component {
   constructor() {
     super();
@@ -24,8 +25,10 @@ class Dashboard extends Component {
   }
 
   componentDidMount () {
+    const { REACT_APP_DAYTRADER_GATEWAY_SERVICE = LOCAL_GATEWAY_URL } = process.env
+    console.log('REACT_APP_DAYTRADER_GATEWAY_SERVICE', REACT_APP_DAYTRADER_GATEWAY_SERVICE)
     const userId = localStorage.getItem('userId');
-    axios.get(`https://localhost:2443/markets/${exchangeString}`)
+    axios.get(`${REACT_APP_DAYTRADER_GATEWAY_SERVICE}/markets/${exchangeString}`)
       .then(res => {
         console.log('res', res)
         this.setState({
@@ -33,7 +36,7 @@ class Dashboard extends Component {
         })
       })
     
-    axios.get(`${ACCOUNTS_API_URL}/accounts/${userId}`)
+    axios.get(`${REACT_APP_DAYTRADER_GATEWAY_SERVICE}/accounts/${userId}`)
     .then(res => {
       console.log('res', res)
       this.setState({
@@ -41,7 +44,7 @@ class Dashboard extends Component {
       })
     })
 
-    axios.get(`https://localhost:3443/portfolios/${userId}/holdings`)
+    axios.get(`${REACT_APP_DAYTRADER_GATEWAY_SERVICE}/portfolios/${userId}/holdings`)
     .then(res => {
       console.log('res', res)
       this.setState({
@@ -61,6 +64,7 @@ class Dashboard extends Component {
   }
 
   render () {
+    console.log('process.env', process.env)
     const userId = localStorage.getItem('userId');
     const {marketSummary, userInfo, holdings,curTime} = this.state
     const {accountID, loginCount, creationDate, lastLogin, openBalance, balance} = userInfo;
