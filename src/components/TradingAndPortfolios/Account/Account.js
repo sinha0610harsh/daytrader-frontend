@@ -31,14 +31,14 @@ class Accountpage extends Component {
       .then(res => {
         console.log('res', res)
         this.setState({
-          accountsummary: {...res.data},
+          accountsummary: res.data,
         })
       })
     axios.get(`${REACT_APP_DAYTRADER_GATEWAY_SERVICE}/accounts/${userId}/profiles`)
       .then(res => {
         console.log('res', res)
         this.setState({
-          userinfo: {...res.data},
+          userinfo: res.data,
           showLoader: false
         })
       })
