@@ -19,7 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "dev": "SET REACT_APP_DAYTRADER_GATEWAY_SERVICE=https://localhost:2443&& npm start",
+    "prod": "SET REACT_APP_DAYTRADER_GATEWAY_SERVICE=https://daytrader-gateway&& npm start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
