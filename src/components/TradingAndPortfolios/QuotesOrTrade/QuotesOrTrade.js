@@ -135,11 +135,11 @@ class QuotesOrTradepage extends Component {
                   <td><Link to='/Terms'>{symbol}</Link></td>
                   <td>{companyName}</td>
                   <td>{volume}</td>
-                  <td>${low.toFixed(2)} - ${high.toFixed(2)}</td>
-                  <td>${open.toFixed(2)}</td>
-                  <td>${price.toFixed(2)}</td>
-                  <td style={{color: gOrL >= 0 ? 'green' : 'red'}}>{(price - open).toFixed(2)}<img className='uparrow-image' src={gOrL >= 0 ? uparrow : downarrow} />
-                  ({gOrL.toFixed(2)}%)<img className='uparrow-image' src={gOrL >= 0 ? uparrow : downarrow} />
+                  <td>${low ? low.toFixed(2) : 0.0} - ${high ? high.toFixed(2) : 0.0}</td>
+                  <td>${open ? open.toFixed(2) : 0.0}</td>
+                  <td>${price ? price.toFixed(2) : 0.0}</td>
+                  <td style={{color: gOrL >= 0 ? 'green' : 'red'}}>{(price - open) ? (price - open).toFixed(2) : 0.0}<img className='uparrow-image' src={gOrL >= 0 ? uparrow : downarrow} />
+                  ({gOrL ? gOrL.toFixed(2) : 0.0}%)<img className='uparrow-image' src={gOrL >= 0 ? uparrow : downarrow} />
                   </td>
                   <td className='buy-shares-td'>
                     <input

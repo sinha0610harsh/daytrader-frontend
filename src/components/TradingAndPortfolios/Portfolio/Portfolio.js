@@ -145,12 +145,12 @@ class Portfoliopage extends Component {
                   <td>{holdingID}</td>
                   <td>{moment(purchaseDate).format('llll')}</td>
                   <td>{quoteID}</td>
-                  <td>{quantity.toFixed(1)}</td>
-                  <td>{purchasePrice.toFixed(2)}</td>
-                  <td>{currentPrice.toFixed(2)}</td>
-                  <td>{purchasebasis.toFixed(2)}</td>
-                  <td>{marketvalue.toFixed(2)}</td>
-                  <td style={{color: GainOrLoss > 0 ? 'green' : 'red'}}>{GainOrLoss.toFixed(2)}<img className='uparrow-image' src={GainOrLoss > 0 ? uparrow : downarrow} /></td>
+                  <td>{quantity ? quantity.toFixed(1) : 0.0}</td>
+                  <td>{purchasePrice ? purchasePrice.toFixed(2) : 0.0}</td>
+                  <td>{currentPrice ? currentPrice.toFixed(2) : 0.0}</td>
+                  <td>{purchasebasis ? purchasebasis.toFixed(2) : 0.0}</td>
+                  <td>{marketvalue ? marketvalue.toFixed(2) : 0.0}</td>
+                  <td style={{color: GainOrLoss > 0 ? 'green' : 'red'}}>{GainOrLoss ? GainOrLoss.toFixed(2) : 0.0}<img className='uparrow-image' src={GainOrLoss > 0 ? uparrow : downarrow} /></td>
                   <td onClick={() => this.handleSellOrder(holdingID, quoteID, currentPrice, quantity)}><Link>{trade}</Link></td>
                 </tr>
 

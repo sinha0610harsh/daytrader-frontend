@@ -122,11 +122,11 @@ class Dashboard extends Component {
                   </tr>
                   <tr>
                     <td><Link>Cash Balance:</Link></td>
-                    <td>${balance}</td>
+                    <td>${balance || 0.0}</td>
                   </tr>
                   <tr>
                     <td><Link>Number of Holdings:</Link></td>
-                    <td>{totalHoldings}</td>
+                    <td>{totalHoldings || 0}</td>
                   </tr>
                   <tr>
                     <td><Link>Total of Holdings:</Link></td>
@@ -134,19 +134,19 @@ class Dashboard extends Component {
                   </tr>
                   <tr>
                     <td><Link>Sum of cash/holdings opening balance:</Link></td>
-                    <td>${sumOfTotalHoldings + balance}</td>
+                    <td>${sumOfTotalHoldings + (balance || 0)}</td>
                   </tr>
                   <tr>
                     <td><Link>Opening Balance:</Link></td>
-                    <td>${openBalance}</td>
+                    <td>${openBalance || 0.0}</td>
                   </tr>
                   <tr>
                     <td><Link>Current Gain ({profit > 0 ? 'profit' : 'loss'})</Link></td>
-                    <td style={{color: profit > 0 ? 'green' : 'red'}}>${profit.toFixed(2)}</td>
+                    <td style={{color: profit > 0 ? 'green' : 'red'}}>${profit ? profit.toFixed(2) : 0.0}</td>
                   </tr>
                   <tr>
                     <td><Link>Exchange Rate: </Link></td>
-                    <td>{exchangeRate || 76}</td>
+                    <td>{exchangeRate ? exchangeRate.toFixed(2) : 76.00}</td>
                   </tr>
                 </tbody>
               </table>
@@ -194,8 +194,8 @@ class Dashboard extends Component {
                           return (
                             <tr key={`top-gainers-data-row-${index}`}>
                               <td><Link to='/Terms'>{symbol}</Link></td>
-                              <td>{price.toFixed(2)}</td>
-                              <td>{change.toFixed(2)} <img className='uparrow-image' src={change >= 0 ? uparrow : downarrow} /></td>
+                              <td>{price ? price.toFixed(2) : 0.0}</td>
+                              <td>{change ? change.toFixed(2) : 0.0} <img className='uparrow-image' src={change >= 0 ? uparrow : downarrow} /></td>
                             </tr>
                           )
                         })}
@@ -222,8 +222,8 @@ class Dashboard extends Component {
                           return (
                             <tr key={`top-gainers-data-row-${index}`}>
                               <td><Link to='/Terms'>{symbol}</Link></td>
-                              <td>{price.toFixed(2)}</td>
-                              <td>{change.toFixed(2)}
+                              <td>{price ? price.toFixed(2) : 0.0}</td>
+                              <td>{change ? change.toFixed(2) : 0.0}
                               <img className='uparrow-image' src={change >= 0 ? uparrow : downarrow} /></td>
                             </tr>
                           )
