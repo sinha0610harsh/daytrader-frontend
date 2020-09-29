@@ -21,7 +21,7 @@ class Portfoliopage extends Component {
       ordersinfo: {},
       holdingsinfo: [],
       quotes: {},
-      curTime : new Date().toLocaleString(),
+      curTime : new Date(),
       tableinfo:{},
     }
   }

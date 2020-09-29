@@ -17,7 +17,7 @@ class Accountpage extends Component {
       accountsummary: {},
       userinfo: {},
       ordersummary: {},
-      curTime : new Date().toLocaleString(),
+      curTime : new Date(),
       updateFlag:false,
       showAllOrdersinfo:[],
       showLoader: true,

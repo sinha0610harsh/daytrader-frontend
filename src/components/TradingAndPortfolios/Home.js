@@ -20,7 +20,7 @@ class Dashboard extends Component {
       userInfo: {},
       marketSummary: {},
       holdings: [],
-      curTime : new Date().toLocaleString(),
+      curTime : new Date(),
     }
   }
 
@@ -67,7 +67,7 @@ class Dashboard extends Component {
     console.log('process.env', process.env)
     const userId = localStorage.getItem('userId');
     const {marketSummary, userInfo, holdings,curTime} = this.state
-    const {accountID, loginCount, creationDate, lastLogin, openBalance, balance} = userInfo;
+    const {accountID, loginCount, creationDate, lastLogin, openBalance, balance, exchangeRate} = userInfo;
     const {summaryDate, gainPercent, tsia, topGainers, topLosers, openTSIA, volume} = marketSummary;
     const totalHoldings = holdings ? holdings.length : 0;
     const sumOfTotalHoldings = this.getSumOfTotalHoldings();
@@ -143,6 +143,10 @@ class Dashboard extends Component {
                   <tr>
                     <td><Link>Current Gain ({profit > 0 ? 'profit' : 'loss'})</Link></td>
                     <td style={{color: profit > 0 ? 'green' : 'red'}}>${profit.toFixed(2)}</td>
+                  </tr>
+                  <tr>
+                    <td><Link>Exchange Rate: </Link></td>
+                    <td>{exchangeRate || 76}</td>
                   </tr>
                 </tbody>
               </table>
