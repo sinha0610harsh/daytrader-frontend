@@ -146,7 +146,7 @@ class Dashboard extends Component {
                   </tr>
                   <tr>
                     <td><Link>Exchange Rate: </Link></td>
-                    <td>{exchangeRate ? exchangeRate.toFixed(2) : 76.00}</td>
+                    <td>INR {exchangeRate ? exchangeRate.toFixed(4) : 76.0000}</td>
                   </tr>
                 </tbody>
               </table>
